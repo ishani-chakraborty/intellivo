@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+	<style>
+		h1,h3 {
+			text-align: center;
+		}
+
+		a:link {
+			text-decoration: none;
+		}
+
+		.button {
+			display: block;
+		    width: 115px;
+		    height: 45px;
+		    background: #4E9CAF;
+		    padding: 10px;
+		    text-align: center;
+		    border-radius: 5px;
+		    color: white;
+		    font-weight: bold;
+    		line-height: 25px;
+		}
+	</style>
+	<h3>Welcome to</h3>
+	<h1>Intellivo</h1>
+	<img src="Intellivo/assets/logo.png" class="rounded mx-auto d-block" alt="Logo">
+	<h3>A chatting platform where intelligent conversations can happen.</h3>
+	<hr>
+	<div class="d-flex justify-content-center">
+		<a class="button" href="{{ url_for('login') }}">Go to Login</a></button>
+	</div>
+<!-- 	<button type="button" class="btn btn-default">Go to Login</button> -->
+{% endblock content %}
+
