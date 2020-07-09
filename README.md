@@ -10,13 +10,13 @@ While important intellectual conversations have been happening on social media p
 
 ## Our Awesome Team
 
-[Madhu Akula](https://github.com/madhuakula) - mentor 
-Jake Schechner - mentor 
- [Chelsea Fernandes](https://github.com/ccfernandes) - product manager
-[Ishani Chakraborty](https://github.com/ishani-chakraborty) - software developer
-[Sejal Dua](https://github.com/sejaldua) - software developer
-[Cindy Ramirez](https://github.com/ramir262) - software developer
-[Adeline Leung](https://github.com/adelineleung) - UI/UX designer 
+* [Madhu Akula](https://github.com/madhuakula) - mentor 
+* [Jake Schechner](https://github.com/JSchechner) - mentor 
+* [Chelsea Fernandes](https://github.com/ccfernandes) - product manager
+* [Ishani Chakraborty](https://github.com/ishani-chakraborty) - software developer
+* [Sejal Dua](https://github.com/sejaldua) - software developer
+* [Cindy Ramirez](https://github.com/ramir262) - software developer
+* [Adeline Leung](https://github.com/adelineleung) - UI/UX designer 
 
 ## Setup
 
