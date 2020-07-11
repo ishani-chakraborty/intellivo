@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Dummy Profile Page</title>
+</head>
+
+<body>
+
+    <form action="{{ url_for('handle_data') }}" class="myForm" method="get" enctype="application/x-www-form-urlencoded"
+        action="/html/codes/html_form_handler.cfm">
+        <fieldset>
+            <legend>Age?</legend>
+            <p><label class="choice"> <input type="radio" name="Under 18" required value="Under 18"> Under 18 </label></p>
+            <p><label class="choice"> <input type="radio" name="Under 18" required value="18-25"> 18-25 </label></p>
+            <p><label class="choice"> <input type="radio" name="Under 18" required value="26-40"> 26-40</label></p>
+            <p><label class="choice"> <input type="radio" name="Under 18" required value="40+"> 40+ </label></p>
+        </fieldset>
+        <fieldset>
+            <legend>How would you describe your belief in a higher power?</legend>
+            <p><label class="choice"> <input type="radio" name="atheist" required value="atheist"> atheist </label></p>
+            <p><label class="choice"> <input type="radio" name="atheist" required value="agnostic"> agnostic </label></p>
+            <p><label class="choice"> <input type="radio" name="atheist" required value="spiritual but not religious"> spiritual but not religious </label></p>
+            <p><label class="choice"> <input type="radio" name="atheist" required value="spiritual but religious"> spiritual but religious </label></p>
+            <p><label class="choice"> <input type="radio" name="atheist" required value="devout religious"> devout religious </label></p>
+        </fieldset>
+        <fieldset>
+            <legend>When newsworthy things are happening in the world, at what level do you engage?</legend>
+            <p><label class="choice"> <input type="radio" name="I do not engage" required value="I do not engage"> I do not engage </label></p>
+            <p><label class="choice"> <input type="radio" name="I do not engage" required value="I educate myself to understand the gist of it"> I educate myself to understand the gist of it</label></p>
+            <p><label class="choice"> <input type="radio" name="I do not engage" required value="In addition to educating myself, I initiate hard conversations with family and friends"> In addition to educating myself, I initiate hard conversations with family and friends </label></p>
+            <p><label class="choice"> <input type="radio" name="I do not engage" required value="I participate in community-wide events surrounding social justice issues"> I participate in community-wide events surrounding social justice issues </label></p>
+            <p><label class="choice"> <input type="radio" name="I do not engage" required value="I am a full on activist: I organize events, create social media content, etc."> I am a full on activist: I organize events, create social media content, etc. </label></p>
+        </fieldset>
+        <fieldset>
+            <legend>What region do you live in?</legend>
+            <p><label class="choice"> <input type="radio" name="Canada" required value="Canada"> Canada </label></p>
+            <p><label class="choice"> <input type="radio" name="Canada" required value="West Coast"> West Coast </label></p>
+            <p><label class="choice"> <input type="radio" name="Canada" required value="South America"> South America </label></p>
+            <p><label class="choice"> <input type="radio" name="Canada" required value="Mexico"> Mexico </label></p>
+            <p><label class="choice"> <input type="radio" name="Canada" required value="Mountain Region"> Mountain Region </label></p>
+            <p><label class="choice"> <input type="radio" name="Canada" required value="Midwest"> Midwest </label></p>
+            <p><label class="choice"> <input type="radio" name="Canada" required value="East Coast"> East Coast </label></p>
+            <p><label class="choice"> <input type="radio" name="Canada" required value="Europe"> Europe</label></p>
+            <p><label class="choice"> <input type="radio" name="Canada" required value="Africa"> Africa </label></p>
+            <p><label class="choice"> <input type="radio" name="Canada" required value="Western Asia"> Western Asia </label></p>
+            <p><label class="choice"> <input type="radio" name="Canada" required value="Eastern Asia"> Eastern Asia </label></p>
+            <p><label class="choice"> <input type="radio" name="Canada" required value="Southern Asia"> Southern Asia </label></p>
+            <p><label class="choice"> <input type="radio" name="Canada" required value="Australia"> Australia </label></p>
+            <p><label class="choice"> <input type="radio" name="Canada" required value="Other"> Other</label></p>
+        </fieldset>
+</body>
+</html>
