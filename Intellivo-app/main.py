@@ -1,8 +1,10 @@
-from flask import Flask, render_template, url_for, flash, redirect# import the Flask class
-from flask_sqlalchemy import SQLAlchemy #orm to run queries 
+from flask import Flask, render_template, url_for, flash, redirect, request, session #import the Flask class
+from flask_sqlalchemy import SQLAlchemy #orm to run queries
 from forms import RegistrationForm, LoginForm
+from oauth import Oauth
 
 app = Flask(__name__) # set app variable to an instance of the flask class
+
 
 #create secret key
 app.config['SECRET_KEY']='a27adadd2e3e4bb099e737cd7c3257e4'
@@ -21,14 +23,14 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db' # chose your databas
 # 	def __repr__(self):
 # 		return f"User('{self.username}', '{self.email}', '{self.email}')"
 
-# db for chat preference form 
+# db for chat preference form
 # class ChatPreferences(db.Model):
 	# preferences = db.relationship('Preference', backref='author') # lazy=dynamic?
 	# user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-	# include columns for actual preferences from form here 
+	# include columns for actual preferences from form here
 
 
-# blog data 
+# blog data
 posts = [
 	{
 		'author': 'Chelsea Fernandes',
@@ -46,14 +48,16 @@ posts = [
 ]
 
 
-@app.route("/") # home page 
+
+
+@app.route("/") # home page
 @app.route("/home")
 def home():
 	return render_template('home.html', title='Home')
 
 
 
-@app.route("/about") # home page 
+@app.route("/about") # home page
 def about():
 	return render_template('about.html', title='About')
 
@@ -64,9 +68,21 @@ def register():
  		flash(f'Account created for {form.username.data}!', 'success')
  		return redirect(url_for('home'))
  	return render_template('register.html', title='Register', form=form)
-	
+
+@app.route("/",methods = ['get'])  # discord login url
+def index();
+	return redirect(Oauth.discord_login_url)
+
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+	code = request.args.get("code")
+	acceess_token = Oauth.get_access_token(code)
+	user_json = Oauth.get_user_json(access_token)
+	username = user_json.get("username")
+	user_hash = user_json.get("discriminator")
+	return username+"#"+user_hash
+
+
 	form=LoginForm()
 	if form.validate_on_submit():
 			if form.email.data == 'admin@log.com' and form.password.data == 'password':
@@ -78,4 +94,3 @@ def login():
 
 if __name__ == '__main__':
 	app.run(debug=True)
-
