@@ -5,7 +5,8 @@
              {{ form.hidden_tag() }}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Edit Profile Preferences</legend>
-                <div class="form-group">
+                <div class="form-group" 
+                style="background-color: rgb(198, 225, 243); padding: 5px;">
                     {{ form.firstname.label(class="form-control-label") }}
                     {% if form.firstname.errors %}
                         {{ form.firstname(class="form-control form-control-lg is-invalid") }}
@@ -18,7 +19,7 @@
                         {{ form.firstname(class="form-control form-control-lg") }}
                     {% endif %}
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="background-color: rgb(198, 225, 243); padding: 5px;">
                     {{ form.age.label }}
                     <small class="text-muted">{{ form.age.description }}</small>
                         {{ form.age(class_="form-control") }}
@@ -27,7 +28,7 @@
                         <span class="label label-danger">{{ error }}</span>
                         {% endfor %}
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="background-color: rgb(198, 225, 243); padding: 5px;">
                         {{ form.spirituality.label }}
                         <small class="text-muted">{{ form.spirituality.description }}</small>
                         {{ form.spirituality(class_="form-control") }}
@@ -36,7 +37,7 @@
                         <span class="label label-danger">{{ error }}</span>
                         {% endfor %}
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="background-color: rgb(198, 225, 243); padding: 5px;">
                         {{ form.engagement.label }}
                         <small class="text-muted">{{ form.engagement.description }}</small>
                         {{ form.engagement(class_="form-control") }}
@@ -45,7 +46,7 @@
                         <span class="label label-danger">{{ error }}</span>
                         {% endfor %}
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="background-color: rgb(198, 225, 243); padding: 5px;">
                         {{ form.location.label }}
                         <small class="text-muted">{{ form.location.description }}</small>
                         {{ form.location(class_="form-control") }}
@@ -55,7 +56,7 @@
                         {% endfor %}
                 </div>
             </fieldset>
-            <div class="form-group">
+            <div class="form-group" style="background-color: rgb(198, 225, 243); padding: 5px;" >
                 {{ form.submit(class="btn btn-default") }}
             </div>
          </form>
