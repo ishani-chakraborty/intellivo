@@ -1,12 +1,21 @@
 {% extends "layout.html" %}
 {% block content %}
 	<style>
+		body{
+			background-color: black;
+		}
 		h1,h3 {
 			text-align: center;
+			color: white;
+
 		}
 
 		a:link {
 			text-decoration: none;
+		}
+
+		.header {
+			vertical-align: middle;
 		}
 
 		.button {
@@ -22,13 +31,16 @@
     		line-height: 25px;
 		}
 	</style>
-	<h3>Welcome to</h3>
-	<h1>Intellivo</h1>
-	<img src="Intellivo/assets/logo.png" class="rounded mx-auto d-block" alt="Logo">
-	<h3>A chatting platform where intelligent conversations can happen.</h3>
-	<hr>
-	<div class="d-flex justify-content-center">
-		<a class="button" href="{{ url_for('login') }}">Go to Login</a></button>
+	<div class="header">
+
+		<h3>Welcome to</h3>
+		<img src="/static/assets/logo.png" class="rounded mx-auto d-block" alt="Logo">
+		<hr>
+		<h3>A chatting platform where intelligent conversations can happen.</h3>
+		<hr>
+		<div class="d-flex justify-content-center">
+			<a class="button" href="{{ url_for('login') }}">Go to Login</a></button>
+		</div>
 	</div>
 <!-- 	<button type="button" class="btn btn-default">Go to Login</button> -->
 {% endblock content %}

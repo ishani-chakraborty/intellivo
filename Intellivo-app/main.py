@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, flash, redirect# import the Flask class
 from flask_sqlalchemy import SQLAlchemy #orm to run queries 
-from forms import RegistrationForm, LoginForm
+from forms import RegistrationForm, LoginForm, ProfileForm
 
 app = Flask(__name__) # set app variable to an instance of the flask class
 
@@ -28,24 +28,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db' # chose your databas
 	# include columns for actual preferences from form here 
 
 
-# blog data 
-posts = [
-	{
-		'author': 'Chelsea Fernandes',
-		'title': 'How to be more Cool',
-		'content': 'First post in a series',
-		'date_posted': 'July 5, 2020'
-	},
-	{
-		'author': 'Hannah Fernandes',
-		'title': 'Blog Post',
-		'content': 'My life in a blog',
-		'date_posted': 'June 22, 2020'
-	}
-
-]
-
-
 @app.route("/") # home page 
 @app.route("/home")
 def home():
@@ -71,10 +53,21 @@ def login():
 	if form.validate_on_submit():
 			if form.email.data == 'admin@log.com' and form.password.data == 'password':
 				flash('You have been logged in!', 'success')
-				return redirect(url_for('home'))
+				return redirect(url_for('user')) # was 'home'
 			else:
 				flash('Login unsucessful. please check credentials', 'danger')
 	return render_template('login.html', title='Login', form=form)
+
+@app.route("/user")
+def user():
+	return render_template('userChats.html', title='User Home')
+
+@app.route("/preferences",  methods=['GET', 'POST'])
+def preferences():
+	form=ProfileForm()
+	if form.validate_on_submit():
+		return redirect(url_for('user')) # was 'home'
+	return render_template('form.html', title='Preferences', form=form)
 
 if __name__ == '__main__':
 	app.run(debug=True)
