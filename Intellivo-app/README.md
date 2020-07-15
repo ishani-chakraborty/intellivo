@@ -14,5 +14,5 @@
  - Flask SQLAlchemy (pip install -U Flask-SQLAlchemy)
 2. In terminal: 
  - export FLASK_APP=main.py
- - flask run -h localhost -p <port you want to run application on>
+ - flask run -h localhost -p (port you want to run application on)
  - (OR) python main.py 
