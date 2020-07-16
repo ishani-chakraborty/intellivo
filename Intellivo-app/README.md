@@ -1,6 +1,7 @@
 ## Structure of intellivo-app 
 
 ### This directory contains the content for the flask app. The structure is as follows: 
+'''bash
 .
 ├── README.md
 ├── __pycache__
@@ -39,6 +40,7 @@
 ├── run.py
 ├── userdatabase.db
 └── usermanager.py
+'''bash
 
 * intellivoUser.db - current database being used 
 * models.py - contains classes for app's databases
