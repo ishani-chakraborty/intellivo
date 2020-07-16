@@ -5,20 +5,9 @@
 ```bash
 .
 ├── README.md
-├── __pycache__
-│   ├── flaskBlog.cpython-37.pyc
-│   ├── forms.cpython-37.pyc
-│   ├── main.cpython-37.pyc
-│   ├── models.cpython-37.pyc
-│   └── run.cpython-37.pyc
 ├── forms.py
 ├── intellivo_package
 │   ├── __init__.py
-│   ├── __pycache__
-│   │   ├── __init__.cpython-37.pyc
-│   │   ├── forms.cpython-37.pyc
-│   │   ├── models.cpython-37.pyc
-│   │   └── routes.cpython-37.pyc
 │   ├── forms.py
 │   ├── intellivoUser.db
 │   ├── models.py
