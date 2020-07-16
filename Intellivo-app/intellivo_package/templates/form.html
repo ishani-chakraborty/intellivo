@@ -5,20 +5,6 @@
              {{ form.hidden_tag() }}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Edit Profile Preferences</legend>
-                <div class="form-group" 
-                style="background-color: rgb(198, 225, 243); padding: 5px;">
-                    {{ form.firstname.label(class="form-control-label") }}
-                    {% if form.firstname.errors %}
-                        {{ form.firstname(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.firstname.errors %}
-                                <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.firstname(class="form-control form-control-lg") }}
-                    {% endif %}
-                </div>
                 <div class="form-group" style="background-color: rgb(198, 225, 243); padding: 5px;">
                     {{ form.age.label }}
                     <small class="text-muted">{{ form.age.description }}</small>
