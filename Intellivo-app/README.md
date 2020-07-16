@@ -1,7 +1,49 @@
 ## Structure of intellivo-app 
 
 ### This directory contains the content for the flask app. The structure is as follows: 
-* main.py - main python file, contains functions for website urls. 
+.
+├── README.md
+├── __pycache__
+│   ├── flaskBlog.cpython-37.pyc
+│   ├── forms.cpython-37.pyc
+│   ├── main.cpython-37.pyc
+│   ├── models.cpython-37.pyc
+│   └── run.cpython-37.pyc
+├── forms.py
+├── intellivo_package
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-37.pyc
+│   │   ├── forms.cpython-37.pyc
+│   │   ├── models.cpython-37.pyc
+│   │   └── routes.cpython-37.pyc
+│   ├── forms.py
+│   ├── intellivoUser.db
+│   ├── models.py
+│   ├── routes.py
+│   ├── static
+│   │   ├── assets
+│   │   │   ├── logo\ icon.jpg
+│   │   │   └── logo.png
+│   │   └── main.css
+│   └── templates
+│       ├── README.md
+│       ├── about.html
+│       ├── form.html
+│       ├── home.html
+│       ├── layout.html
+│       ├── login.html
+│       ├── profile.html
+│       ├── register.html
+│       └── userChats.html
+├── run.py
+├── userdatabase.db
+└── usermanager.py
+
+* intellivoUser.db - current database being used 
+* models.py - contains classes for app's databases
+* routes - all website urls 
+* run.py - main python file, used to run the app 
 * forms.py - where all user forms are configured
 * templates - the html files that can have embedded jinja (language to connect with flask app data)
 * static - currently just has the main.css file 
