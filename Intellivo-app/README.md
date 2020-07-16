@@ -40,7 +40,7 @@
 ├── run.py
 ├── userdatabase.db
 └── usermanager.py
-'''bash
+'''
 
 * intellivoUser.db - current database being used 
 * models.py - contains classes for app's databases
