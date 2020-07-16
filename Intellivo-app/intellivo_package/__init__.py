@@ -9,6 +9,10 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///intellivoUser.db' # chose you
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
+
 login_manager = LoginManager(app)
+login_manager.login_view = 'login' # to redirect users to login if they haven't already 
+login_manager.login_message_category = 'info' # for alert to login 
+
 
 from intellivo_package import routes 

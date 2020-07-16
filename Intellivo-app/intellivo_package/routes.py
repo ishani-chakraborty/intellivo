@@ -1,26 +1,25 @@
-from flask import render_template, request, url_for, flash, redirect# import the Flask class
+from flask import render_template, request, url_for, flash, redirect, request # import the Flask class
 from intellivo_package import app, db, bcrypt 
 from intellivo_package.models import User, UserPref
 from intellivo_package.forms import RegistrationForm, LoginForm, ProfileForm
-from flask_login import login_user
+from flask_login import login_user, current_user, logout_user, login_required
 
-# db for chat preference form 
-# class ChatPreferences(db.Model):
-    # preferences = db.relationship('Preference', backref='author') # lazy=dynamic?
-    # user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    # include columns for actual preferences from form here 
-
-@app.route("/") # home page 
+# home page 
+@app.route("/")
 @app.route("/home")
 def home():
     return render_template('home.html', title='Home')
 
-@app.route("/about") # home page 
+# about page 
+@app.route("/about")
 def about():
     return render_template('about.html', title='About')
 
+# register page 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('user'))
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
@@ -31,7 +30,8 @@ def register():
         flash('Your account has been created. You are now able to log in!', 'success')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
-    
+   
+# login page  
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     form=LoginForm()
@@ -39,7 +39,8 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user)
-            return redirect(url_for('user'))
+            next_page = request.args.get('next') # redirect to next page if it exits (user tried accessing and is now logging in)
+            return redirect(next_page) if next_page else redirect(url_for('user'))
         else:
             flash('Login unsucessful. Please check credentials.', 'danger')
     return render_template('login.html', title='Login', form=form)
@@ -48,13 +49,31 @@ def login():
 def user():
     return render_template('userChats.html', title='User Home')
 
+# Preferences form (connected to UserPref). Access through profile page
 @app.route("/preferences",  methods=['GET', 'POST'])
 def preferences():
     form=ProfileForm()
     if form.validate_on_submit():
-        print(form.firstname.data, form.age.data, form.spirituality.data, form.location.data, form.engagement.data)
-        user = User(first_name=form.firstname.data, age=int(form.age.data), spirituality=int(form.spirituality.data), location=int(form.location.data), engagement=int(form.engagement.data))
-        db.session.add(user)
-        db.session.commit()
+        if current_user.is_authenticated:
+            # check if row with user_id already exists. if exits, update row. else make new row 
+            user=current_user
+            if UserPref.query.filter_by(user_id = user.id).first():
+                UserPref.query.filter_by(user_id = user.id).delete()
+            userpref = UserPref(age=int(form.age.data), spirituality=int(form.spirituality.data), location=int(form.location.data), 
+                                engagement=int(form.engagement.data), user=user)
+            db.session.add(user)
+            db.session.commit()
         return redirect(url_for('user')) # was 'home'
     return render_template('form.html', title='Preferences', form=form)
+
+# profile page 
+@app.route("/profile")
+@login_required
+def profile():
+    return render_template('profile.html', title='Profile')
+
+# logout 
+@app.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
