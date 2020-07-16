@@ -46,6 +46,8 @@
 1. Make sure Flask and all dependencies are installed 
  - Flask 
  - Flask SQLAlchemy (pip install -U Flask-SQLAlchemy)
+ - Flask login (pip install flask-login)
+ - Bcrypt for password encryption (pip install bcrypt)
 2. In terminal: 
 ```bash
 export FLASK_APP=main.py
