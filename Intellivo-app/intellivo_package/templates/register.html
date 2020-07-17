@@ -1,5 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
+<style>
+    .content-section{
+        border-color: #649DBB;
+        color: #407692;
+    }
+</style>
     <div class="content-section">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
@@ -83,4 +89,5 @@
             Already Have An Account? <a class="ml-2" href="{{ url_for('login') }}">Sign In</a>
         </small>
     </div>
+    <hr>
 {% endblock content %}

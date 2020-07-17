@@ -1,18 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
 	<style>
-		.button {
-	      display: block;
-	        width: 80px;
-	        height: 45px;
-	        background: #4E9CAF;
-	        padding: 10px;
-	        text-align: center;
-	        border-radius: 5px;
-	        color: white;
-	        font-weight: bold;
-	        line-height: 25px;
-		}
 	</style>
 	<h1> My Profile </h1>
 	<hr>
@@ -21,9 +9,16 @@
 	        <div class="media-body">
 	          <h2 class="account-heading">{{ current_user.firstname }} {{ current_user.lastname }}</h2>
 	          <p class="text-secondary">{{ current_user.email }}</p>
+	          <hr>
     	</div>
      </div>
-     <h4>To complete/update your profile and preferences, click <a class="button" href="{{ url_for('preferences') }}">here</a>
-	</h4>
+     <h2>Profile Questions</h2>
+     <h5>Age: {{ userpref.age }}</h5>
+     <h5>Location: {{ userpref.location }}</h5>
+     <h5>How would you describe your belief in a higher power?: {{ userpref.spirituality }}</h5>
+     <h5>When newsworthy things are happening in the world, at what level do you engage?: {{ userpref.engagement }}</h5>
+     <hr>
+     <h6>To complete/update your profile and preferences, click <a href="{{ url_for('preferences') }}">here</a>
+	</h6>
 
 {% endblock content %}

@@ -1,11 +1,20 @@
 {% extends "layout.html" %}
 {% block content %}
+<style>
+    .content-section{
+        border-color: #649DBB;
+        color: #407692;
+    }
+</style>
     <div class="content-section">
          <form method="POST" action="">
              {{ form.hidden_tag() }}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Edit Profile Preferences</legend>
-                <div class="form-group" style="background-color: rgb(198, 225, 243); padding: 5px;">
+                <div class="form-group">
+                    <h5>Please answer these questions as they are used to match you to person to chat with!</h5> 
+                </div>
+                <div class="form-group">
                     {{ form.age.label }}
                     <small class="text-muted">{{ form.age.description }}</small>
                         {{ form.age(class_="form-control") }}
@@ -14,7 +23,7 @@
                         <span class="label label-danger">{{ error }}</span>
                         {% endfor %}
                 </div>
-                <div class="form-group" style="background-color: rgb(198, 225, 243); padding: 5px;">
+                <div class="form-group">
                         {{ form.spirituality.label }}
                         <small class="text-muted">{{ form.spirituality.description }}</small>
                         {{ form.spirituality(class_="form-control") }}
@@ -23,7 +32,7 @@
                         <span class="label label-danger">{{ error }}</span>
                         {% endfor %}
                 </div>
-                <div class="form-group" style="background-color: rgb(198, 225, 243); padding: 5px;">
+                <div class="form-group">
                         {{ form.engagement.label }}
                         <small class="text-muted">{{ form.engagement.description }}</small>
                         {{ form.engagement(class_="form-control") }}
@@ -32,7 +41,7 @@
                         <span class="label label-danger">{{ error }}</span>
                         {% endfor %}
                 </div>
-                <div class="form-group" style="background-color: rgb(198, 225, 243); padding: 5px;">
+                <div class="form-group">
                         {{ form.location.label }}
                         <small class="text-muted">{{ form.location.description }}</small>
                         {{ form.location(class_="form-control") }}
@@ -42,8 +51,11 @@
                         {% endfor %}
                 </div>
             </fieldset>
-            <div class="form-group" style="background-color: rgb(198, 225, 243); padding: 5px;" >
+            <div class="form-group">
                 {{ form.submit(class="btn btn-default") }}
+            </div>
+            <div class="form-group">
+                <a href="{{ url_for('profile') }}">Don't Save, Go Back to Profile</a>
             </div>
          </form>
     </div>

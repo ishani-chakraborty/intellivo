@@ -1,5 +1,5 @@
 from flask import render_template, request, url_for, flash, redirect, request # import the Flask class
-from intellivo_package import app, db, bcrypt 
+from intellivo_package import app, db, bcrypt, socketio
 from intellivo_package.models import User, UserPref
 from intellivo_package.forms import RegistrationForm, LoginForm, ProfileForm
 from flask_login import login_user, current_user, logout_user, login_required
@@ -45,9 +45,9 @@ def login():
             flash('Login unsucessful. Please check credentials.', 'danger')
     return render_template('login.html', title='Login', form=form)
 
-@app.route("/user")
-def user():
-    return render_template('userChats.html', title='User Home')
+# @app.route("/user")
+# def user():
+#     return render_template('userChats.html', title='User Home')
 
 # Preferences form (connected to UserPref). Access through profile page
 @app.route("/preferences",  methods=['GET', 'POST'])
@@ -63,17 +63,32 @@ def preferences():
                                 engagement=int(form.engagement.data), user=user)
             db.session.add(user)
             db.session.commit()
-        return redirect(url_for('user')) # was 'home'
+        return redirect(url_for('profile')) # was 'home'
     return render_template('form.html', title='Preferences', form=form)
 
 # profile page 
 @app.route("/profile")
 @login_required
 def profile():
-    return render_template('profile.html', title='Profile')
+    user = current_user
+    userpref = UserPref.query.filter_by(user_id = user.id).first()
+    return render_template('profile.html', title='Profile', userpref=userpref)
 
 # logout 
 @app.route("/logout")
 def logout():
     logout_user()
     return redirect(url_for('home'))
+
+
+@app.route('/chat', methods=["POST", "GET"])
+def user():
+    return render_template('userChats.html', title='User Home')
+
+def messageReceived(methods=['GET', 'POST']):
+    print('message was received!!!')
+
+@socketio.on('my event')
+def handle_my_custom_event(json, methods=['GET', 'POST']):
+    print('received my event: ' + str(json))
+    socketio.emit('my response', json, callback=messageReceived)
