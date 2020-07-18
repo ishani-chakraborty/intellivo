@@ -1,4 +1,4 @@
-from intellivo_package import app
+from intellivo_package import app, socketio
 
 # run the app 
 if __name__ == '__main__':

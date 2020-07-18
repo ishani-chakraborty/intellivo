@@ -16,6 +16,14 @@
 		<title>Intellivo<title>
 	{% endif %}
 </head>
+<style>
+		body{
+			background-color: #EFF5F8;
+		}
+		.dropdown-menu{
+			background-color: 
+		}
+</style>
 <body>
 	<header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
@@ -32,8 +40,17 @@
             <div class="navbar-nav">
             	{% if current_user.is_authenticated %}
             		<a class="nav-item nav-link" href="{{ url_for('user') }}">My Home</a>
+            		<div class="dropdown">
+					  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					    <a class="dropdown-item" href="{{ url_for('user') }}">Chat Home</a>
+					    <a class="dropdown-item" href="{{ url_for('profile') }}">My Profile</a>
+					    <a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a>
+					  </div>
+					</div>
+<!--             		<a class="nav-item nav-link" href="{{ url_for('user') }}">My Home</a>
             		<a class="nav-item nav-link" href="{{ url_for('profile') }}">My Profile</a>
-            		<a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+            		<a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a> -->
             	{% else %}
               		<a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
               		<a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>

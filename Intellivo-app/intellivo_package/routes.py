@@ -82,6 +82,7 @@ def logout():
 
 
 @app.route('/chat', methods=["POST", "GET"])
+@login_required
 def user():
     return render_template('userChats.html', title='User Home')
 
