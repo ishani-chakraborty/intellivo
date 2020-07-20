@@ -24,17 +24,19 @@ There are 4 main features that we want to have implemented for our MVP
 
 1. User authentication - Oauth 2.0  
 2. Chat room backend - Flask-SocketIO & SQLALCHEMY 
-3. Matching algorithm - Clustering in Python 
+3. Matching algorithm - Principle Component Analysis + K-Means Clustering in Python 
 4. Website interface - Flask, HTML, CSS, Bootstrap 
 
 ## Roadmap
 
 This project is part of the internHacks 2020, a 6-week hackathon. 
 
-1. idea creation + basic design  
-2. initial architectural and visual design 
-3. Work on tasks asynchronously 
-4. User testing + refining of app
+Week 1: ideation & basic design  
+Week 2: initial architectural and visual design 
+Week 3: work on tasks asynchronously 
+Week 4: user testing and structural implementation of the app
+Week 5: integration
+Week 6: deployment & design considerations
 
 ## Contributions
 
