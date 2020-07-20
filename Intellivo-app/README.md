@@ -5,7 +5,6 @@
 ```bash
 .
 ├── README.md
-├── forms.py
 ├── intellivo_package
 │   ├── __init__.py
 │   ├── forms.py
@@ -24,12 +23,16 @@
 │       ├── home.html
 │       ├── layout.html
 │       ├── login.html
+│       ├── prefForm.html
 │       ├── profile.html
 │       ├── register.html
 │       └── userChats.html
-├── run.py
-├── userdatabase.db
-└── usermanager.py
+├── old
+│   ├── forms.py
+│   ├── userdatabase.db
+│   └── usermanager.py
+├── requirements.txt
+└── run.py
 ```
 
 * intellivoUser.db - current database being used 
@@ -47,7 +50,8 @@
  - Flask 
  - Flask SQLAlchemy (pip install -U Flask-SQLAlchemy)
  - Flask login (pip install flask-login)
- - Bcrypt for password encryption (pip install bcrypt)
+ - Bcrypt for password encryption (pip install bcrypt)  
+ - Flask SocketIO (pip install -U flask-socketio)
 2. In terminal: 
 ```bash
 export FLASK_APP=main.py
