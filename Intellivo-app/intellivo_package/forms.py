@@ -49,8 +49,7 @@ class ProfileForm(FlaskForm):
             render_kw={})
 	location = SelectField(u"Location: ", [],
             choices=[("1", "West Coast (US)"), ("2", "Mountain Region (US)"), ("3", "Midwest (US)"), ("4", "East Coast (US)"), ("5", "Canada"), 
-            		("6", "South America"),("7", "Mexico"), ("8", "East Coast"), ("9", "Europe"), ("10", "Middle East"), ("11", "Africa"), 
-            		("12", "Western Asia"), ("13", "Eastern Asia"), ("14", "Southern Asia"),("15", "Australia"),("16", "Other"),],
+            ("6", "South America"),("7", "Mexico"), ("8", "Europe"), ("9", "Middle East"), ("10", "Africa"), ("11", "Western Asia"), ("12", "Eastern Asia"), ("13", "Southern Asia"),("14", "Australia"),("15", "Other")],
             description=u"(Your general place of residence)")
 	engagement = SelectField(u"When newsworthy things are happening in the world, at what level do you engage?", [DataRequired()],
             choices=[("1", "I do not engage"), ("2", "I educate myself to understand the gist of it"), 
