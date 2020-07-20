@@ -31,6 +31,6 @@ num_random = int(input('How many randomly generated users do you want? '))
 for i in range(start_idx, start_idx + num_random):
     age = random.randrange(4)+1
     spirituality = random.randrange(5)+1
-    location = random.randrange(15)+1
+    location = random.randrange(16)+1
     engagement = random.randrange(5)+1
     insertVariableIntoTable(age, spirituality, location, engagement, i)
