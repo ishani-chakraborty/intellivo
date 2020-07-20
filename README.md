@@ -32,11 +32,11 @@ There are 4 main features that we want to have implemented for our MVP
 This project is part of the internHacks 2020, a 6-week hackathon. 
 
 Week 1: ideation & basic design  
-Week 2: initial architectural and visual design 
-Week 3: work on tasks asynchronously 
-Week 4: user testing and structural implementation of the app
-Week 5: integration
-Week 6: deployment & design considerations
+Week 2: initial architectural and visual design  
+Week 3: work on tasks asynchronously  
+Week 4: user testing and structural implementation of the app  
+Week 5: integration  
+Week 6: deployment & design considerations  
 
 ## Contributions
 
