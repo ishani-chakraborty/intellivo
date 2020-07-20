@@ -1,6 +1,254 @@
 {% extends "layout.html" %}
 {% block content %}
-	<h1>About Page<h1>
-	<hr>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+<!------ Include the above in your HEAD tag ---------->
+<style>
+	#wrapper {
+  padding-left: 250px;
+  transition: all 0.4s ease 0s;
+}
+
+#sidebar-wrapper {
+  margin-left: -250px;
+  left: 250px;
+  width: 250px;
+  background: #000;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.4s ease 0s;
+}
+
+#wrapper.active {
+  padding-left: 0;
+}
+
+#wrapper.active #sidebar-wrapper {
+  left: 0;
+}
+
+#page-content-wrapper {
+  width: 100%;
+}
+
+
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  line-height: 40px;
+  text-indent: 20px;
+}
+
+.sidebar-nav li a {
+  color: #999999;
+  display: block;
+  text-decoration: none;
+  padding-left: 60px;
+}
+
+.sidebar-nav li a span:before {
+  position: absolute;
+  left: 0;
+  color: #41484c;
+  text-align: center;
+  width: 20px;
+  line-height: 18px;
+}
+
+.sidebar-nav li a:hover,
+.sidebar-nav li.active {
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+  text-decoration: none;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+  height: 65px;
+  line-height: 60px;
+  font-size: 18px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+  color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+}
+
+
+
+.content-header {
+  height: 65px;
+  line-height: 65px;
+}
+
+.content-header h1 {
+  margin: 0;
+  margin-left: 20px;
+  line-height: 65px;
+  display: inline-block;
+}
+
+#menu-toggle {
+    text-decoration: none;
+}
+
+.btn-menu {
+  color: #000;
+} 
+
+.inset {
+  padding: 20px;
+}
+
+@media (max-width:767px) {
+
+#wrapper {
+  padding-left: 0;
+}
+
+#sidebar-wrapper {
+  left: 0;
+}
+
+#wrapper.active {
+  position: relative;
+  left: 250px;
+}
+
+#wrapper.active #sidebar-wrapper {
+  left: 250px;
+  width: 250px;
+  transition: all 0.4s ease 0s;
+}
+
+#menu-toggle {
+  display: inline-block;
+}
+
+.inset {
+  padding: 15px;
+}
+
+.echoDefinition{
+	border-color: black;
+	border-style: double;
+	border: 1px;
+	text-align: center;
+}
+
+
+}
+</style>
+<div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <nav id="spy">
+                <ul class="sidebar-nav nav">
+                    <li class="sidebar-brand">
+                        <a href="#home"><span class="fa fa-home solo">About Us</span></a>
+                    </li>
+                    <li>
+                        <a href="#anch1" data-scroll>
+                            <span class="fa fa-anchor solo">What is Intellivo?</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#anch2" data-scroll>
+                            <span class="fa fa-anchor solo">Why Intellivo?</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#anch3" data-scroll>
+                            <span class="fa fa-anchor solo">Who We Are</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+            <div class="content-header">
+                <h1 id="home">
+                    <a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    About Us 
+                </h1>
+            </div>
+
+            <div class="page-content inset" data-spy="scroll" data-target="#spy">
+                <div class="row">
+                        <div class="jumbotron text-center" >
+                            <img src="/static/assets/logo.png" class="rounded mx-auto d-block" alt="Logo">
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 well">
+                        <legend id="anch1"></legend>
+                        <hr>
+                        <hr>
+                        <h1>What is Intellivo?</h1>
+                        <p>
+                        	Intellivo is a web application that allows users from differing backgrounds to get matched with the aim of having intellectual conversations about topics they are passionate about. 
+						</p>
+                        <p>
+                        	The goal of this web application is to bring awareness to the echo chamber dilemma that many are not aware of yet are most likely affected by. By engaging in these sometimes difficult conversations with people who can offer very different insights about the same topic, users will learn to be more open-minded and willing to engage in deep conversation that can lead to change. Ultimately, the hope is to dispel social insecurities people face with the task of sharing  a new take on a topic to a differently-minded or closed-minded community. 
+                    	</p>
+                    </div>
+                    <div class="col-md-12 well">
+                        <legend id="anch2"></legend>
+                        <hr>
+                        <hr>
+                        <h1>Why Intellivo?</h1>
+                        <p>
+                        	More than ever we need to be having important conversations to bring continued attention and action to the racial pandemic we are in the midst of. We typically have these important conversations on social media platforms, which is a good step forward. The problem is that these platforms tend to be composed of friends and other like-minded individuals whose beliefs and values align with each other’s. This creates an echo chamber which deceives us to believe that we are productively engaging with one another when we are actually just reinforcing each other’s beliefs. A possible consequence of this phenomenon is that it can be difficult to be empathetic of the other side, which can lead to a reluctance to change how things are. In order to create lasting behavioral and systemic change, it is crucial for everyone to be more understanding of other people’s perspectives.
+                        </p>
+                        <hr>
+                        <div class="echoDefinition" style=" text-align: center; font-weight: bold;">
+		                        <h4 style="color: #407692;">What is an Echo Chamber?</h4>
+		                        <h5>
+									An environment where a person only finds information or opinions that reinforce their own
+								</h5>
+								<hr>
+						</div>
+						<p>
+							Since the basis of Intellivo is to have meaningful conversations in a one-on-one environment with people who don’t share similar beliefs as ourselves, the effects of an echo chamber cannot prevail in this safe space. This experience allows users to take a step towards having more productive conversations across larger audiences. 
+						</p>
+                    </div>
+                    <div class="col-md-12 well">
+                        <legend id="anch3"></legend>
+                        <hr>
+                        <hr>
+                        <h1>Who We Are</h1>
+                        <p>
+                        	We are a group of students in college who started this project in a 6-week virtual hackathon in the middle of both a health and racial pandemic. We noticed that because everyone was quarantining, we were all getting information and making our voices heard through social media platforms. However, sometimes the conversations we saw happening were not productive or conducive to creating change because they were being repeated and echoed to audiences who already believed what was being said. Therefore, we thought of Intellivo (intellectual convos) in hopes of being part of the solution to encourage change through a platform where people can engage in a meaningful exchanges of thoughts. Though this idea stemmed from the problems we observed of how people were reacting on social media to the deep-rooted problem of racial inequality, we definitely see the echo chamber problem preventing meaningful conversations about other controversial topics that need passionate people from all backgrounds to talk about it and enact change.
+
+                        </p>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
 

@@ -45,10 +45,6 @@ def login():
             flash('Login unsucessful. Please check credentials.', 'danger')
     return render_template('login.html', title='Login', form=form)
 
-# @app.route("/user")
-# def user():
-#     return render_template('userChats.html', title='User Home')
-
 # Preferences form (connected to UserPref). Access through profile page
 @app.route("/preferences",  methods=['GET', 'POST'])
 def preferences():
@@ -80,7 +76,7 @@ def logout():
     logout_user()
     return redirect(url_for('home'))
 
-
+#################### chat routes ####################
 @app.route('/chat', methods=["POST", "GET"])
 @login_required
 def user():
@@ -93,3 +89,5 @@ def messageReceived(methods=['GET', 'POST']):
 def handle_my_custom_event(json, methods=['GET', 'POST']):
     print('received my event: ' + str(json))
     socketio.emit('my response', json, callback=messageReceived)
+
+#################### end chat routes ####################
