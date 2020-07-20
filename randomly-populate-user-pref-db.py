@@ -1,7 +1,7 @@
 import sqlite3
 import random
 
-def insertVaribleIntoTable(age, spirituality, location, engagement, user_id):
+def insertVariableIntoTable(age, spirituality, location, engagement, user_id):
     try:
         sqliteConnection = sqlite3.connect('Intellivo-app/intellivo_package/intellivoUser.db')
         cursor = sqliteConnection.cursor()
@@ -26,9 +26,11 @@ VALUES (?, ?, ?, ?, ?);"""
 
 # adjust the range based on the current ids already in the db
 # adn how many user prefs you want to generate
-for i in range(8, 60):
+start_idx = int(input('Start Index: '))
+num_random = int(input('How many randomly generated users do you want? '))
+for i in range(start_idx, start_idx + num_random):
     age = random.randrange(4)+1
     spirituality = random.randrange(5)+1
     location = random.randrange(15)+1
     engagement = random.randrange(5)+1
-    insertVaribleIntoTable(age, spirituality, location, engagement, i)
+    insertVariableIntoTable(age, spirituality, location, engagement, i)
