@@ -22,9 +22,9 @@ While important intellectual conversations have been happening on social media p
 
 There are 4 main features that we want to have implemented for our MVP
 
-1. User authentication - Oauth 2.0  
-2. Chat room backend - Flask-SocketIO & SQLALCHEMY 
-3. Matching algorithm - Principle Component Analysis + K-Means Clustering in Python 
+1. User authentication - Oauth 2.0 (not yet integrated) + Flask-Login
+2. Chat room backend - Flask-SocketIO (not completely integrated) + SQLALCHEMY 
+3. Matching algorithm - Principle Component Analysis + K-Means Clustering in Python (not yet integrated)
 4. Website interface - Flask, HTML, CSS, Bootstrap 
 
 ## Roadmap
