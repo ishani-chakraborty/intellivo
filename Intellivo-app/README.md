@@ -48,13 +48,20 @@
 
 1. Make sure Flask and all dependencies are installed 
  - Flask 
- - Flask SQLAlchemy (pip install -U Flask-SQLAlchemy)
+ - Flask-SQLAlchemy (pip install -U Flask-SQLAlchemy)
+   - database ORM
  - Flask login (pip install flask-login)
- - Bcrypt for password encryption (pip install bcrypt)  
- - Flask SocketIO (pip install -U flask-socketio)
+   - for login validation
+ - Flask-Bcrypt (pip install bcrypt)  
+   - for password encryption 
+ - Flask-SocketIO (pip install -U flask-socketio)
+   - for chatting via web sockets
+ - Flask-WTF (pip install Flask-WTF)
+   - for login, registration, and preference forms 
 2. In terminal: 
 ```bash
-export FLASK_APP=main.py
+export FLASK_APP=run.py
+export export FLASK_DEBUG=1 
 flask run -h localhost -p (port you want to run application on)
 ```
 Or you can do: 
