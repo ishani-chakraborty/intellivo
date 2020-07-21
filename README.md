@@ -27,9 +27,19 @@ There are 4 main features that we want to have implemented for our MVP
 3. Matching algorithm - Principle Component Analysis + K-Means Clustering in Python (not yet integrated)
 4. Website interface - Flask, HTML, CSS, Bootstrap 
 
+## The simplest Docker setup
+
+* Anyone can pull the docker image and quickly run locally using the below command
+
+```bash
+docker run --name intellivo-app -p 5000:5000 intellivo-app
+```
+
+* Then navigate to the [http://127.0.0.1:5000](http://127.0.0.1:5000)
+
 ## Roadmap
 
-This project is part of the internHacks 2020, a 6-week hackathon. 
+This project is part of the internHacks 2020, a 6-week hackathon.
 
 Week 1: ideation & basic design  
 Week 2: initial architectural and visual design  
