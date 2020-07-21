@@ -1,4 +1,4 @@
-from flask import render_template, request, url_for, flash, redirect, request # import the Flask class
+from flask import render_template, request, url_for, flash, redirect # import the Flask class
 from intellivo_package import app, db, bcrypt, socketio
 from intellivo_package.models import User, UserPref
 from intellivo_package.forms import RegistrationForm, LoginForm, ProfileForm
@@ -40,7 +40,7 @@ def login():
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user)
             next_page = request.args.get('next') # redirect to next page if it exits (user tried accessing and is now logging in)
-            return redirect(next_page) if next_page else redirect(url_for('user'))
+            return redirect(next_page) if next_page else redirect(url_for('profile'))
         else:
             flash('Login unsucessful. Please check credentials.', 'danger')
     return render_template('login.html', title='Login', form=form)
