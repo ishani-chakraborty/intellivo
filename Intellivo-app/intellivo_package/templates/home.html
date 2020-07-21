@@ -52,6 +52,7 @@
 
 	<header>
 		<h2 class="outerspace">space</h2>
+		<hr>
 	  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 	    <ol class="carousel-indicators">
 	      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -68,9 +69,13 @@
 	          <h3>A chatting platform where intelligent conversations can happen.</h3>
 	          <h4 class="space">space</h4>
 	          <div class="d-flex justify-content-center">
+	          	{% if current_user.is_authenticated %}
+	          	<!-- do nothing  -->
+	          	{% else %}
 					<a class="button" href="{{ url_for('login') }}">Login</a></button>
 					<h3 class="space">sp</h3>
 					<a class="button" href="{{ url_for('register') }}">New User</a></button>
+				{% endif %}
 				</div>
 				<h2 class="space">sp</h2>
 	        </div>
@@ -106,6 +111,7 @@
 	          <span class="sr-only">Next</span>
 	        </a>
 	  </div>
+	  <hr>
 	</header>
 	<!-- <div class="header">
 
