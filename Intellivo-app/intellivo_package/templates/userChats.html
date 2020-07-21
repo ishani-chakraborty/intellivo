@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h1>My Chats</h1>
+<h1>My Chat</h1>
 <hr>
 <style>
 	.chatbox{
@@ -52,6 +52,12 @@
     }
 
 </style>
+<script type="text/javascript">
+  function doFunction(){
+        document.getElementById("leavebutton").onclick = $( 'div.message_holder' ).append("good bye.");
+  }
+
+</script>
 
 <!-- for tlk.io  -->
 <!-- <script>
@@ -77,16 +83,11 @@
         <h6>You: <input type="text" class="message" placeholder="type here..." style="width: 440px;"/></h6>
         <input type="submit" value="submit" name="submit"/>
   </form>
-
-<!--   <form id='leave_form' action="leave" method="POST">
-    <input type = "text" placeholder="type here..."/>
-    <input type="submit" value="leave" id="leave" name="leave" onclick="leave()"/>
-  </form> -->
- <!--  <button type="submit" value="leave" onclick="socket.on('leave', function(){socket.leave_room(room)}"/>
-  <h1><div id="demo"></div></h1> -->
 </div>
 <div class="leavebutton">
-    <button class=".btn-default"> <a class="leave" href="{{ url_for('home') }}">Leave Room</a></button>
+    <button class=".btn-default" value="leavebutton" id="leavebutton" onclick="doFunction();"> 
+      <a class="leave" href="{{ url_for('home') }}">Leave Room</a>
+    </button>
   </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -121,27 +122,7 @@
           $( 'div.message_holder' ).append( '<div><b style="color: #000 ">'+msg.user_name+'</b> '+msg.message+'</div>' )
           $('div.message_holder').scrollTop($('div.message_holder')[0].scrollHeight);
         }
-      })
-</script>
-<script type="text/javascript">
-        function LeaveChat(){
-          socket.on('leave', function(){
-            var form = document.getElementById('leave_form');
-            form.onsubmit = function()
-          try{
-            console.log('[socket]','leave :', room);
-            socket.leave();
-            socket.to().emit('user left', socket.id);
-          }catch(e){
-            console.log('[error]','leave :', e);
-            socket.emit('error','couldnt perform requested action');
-          }}
-        }
-
-        function practice(){
-          document.getElementById("demo").innerHTML = "Hello World";
-        }
-      
+      });
 
 </script>
 
@@ -149,13 +130,14 @@
 <!-- randomly generate new question -->
 <script type="text/javascript">
   var msgArr = new Array();
-  msgArr[0] = "Should animal testing be banned? Why or why not? ";
-  msgArr[1] = "What is your view on the death penalty?";
-  msgArr[2] = "Why do you think our country is so divided on social welfare subjects?";
-  msgArr[3] = "Should all people have access to free healthcare? Why or why not?";
-  msgArr[4] = "Why do you think discrimination continue to exist in the United States?"
-  msgArr[5] = "What are the root causes of oppression?"
-  msgArr[6] = "How are prejudice and bias created? How do we overcome them?"
+  msgArr[0] = "How are prejudice and bias created? How do we overcome them?"
+ // // "Should animal testing be banned? Why or why not? ";
+  // msgArr[1] = "What is your view on the death penalty?";
+  // msgArr[2] = "Why do you think our country is so divided on social welfare subjects?";
+  // msgArr[3] = "Should all people have access to free healthcare? Why or why not?";
+  // msgArr[4] = "Why do you think discrimination continue to exist in the United States?"
+  // msgArr[5] = "What are the root causes of oppression?"
+  // msgArr[6] = "How are prejudice and bias created? How do we overcome them?"
   // msgArr[7] = "What are the responsibilities of the individual in regard to issues of social justice?"
   // msgArr[8] = "What are the factors that create an imbalance of power within a culture?"
   // msgArr[9] = "How have you experienced the benefits of privilege (race, socioeconomic, class, education, citizenship, birth order, etc.)? How has this impacted your life's path? "
