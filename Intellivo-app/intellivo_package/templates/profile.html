@@ -1,24 +1,87 @@
 {% extends "layout.html" %}
 {% block content %}
 	<style>
+		p{
+			color: #466d82;
+		}
+		h6{
+			background-color: yellow;
+		}
 	</style>
 	<h1> My Profile </h1>
 	<hr>
 	<div class="content-section">
       	<div class="media">
 	        <div class="media-body">
-	          <h2 class="account-heading">{{ current_user.firstname }} {{ current_user.lastname }}</h2>
+	          <h2 class="account-heading">{{ current_user.firstname }} 
+	          {{ current_user.lastname }}</h2>
 	          <p class="text-secondary">{{ current_user.email }}</p>
 	          <hr>
     	</div>
      </div>
      <h2>Profile Questions</h2>
-     <h5>Age: {{ userpref.age }}</h5>
-     <h5>Location: {{ userpref.location }}</h5>
-     <h5>How would you describe your belief in a higher power?: {{ userpref.spirituality }}</h5>
-     <h5>When newsworthy things are happening in the world, at what level do you engage?: {{ userpref.engagement }}</h5>
      <hr>
-     <h6>To complete/update your profile and preferences, click <a href="{{ url_for('preferences') }}">here</a>
-	</h6>
+     <h6>To complete/update your profile and preferences, click <a href="{{ url_for('preferences') }}">here</a></h6>
+     <hr>
+     <h5>Age:</h5>
+     <p id="myage"></p>
+     <hr>
+     <h5>Location:</h5>
+     <p id="myLocation"></p>
+     <hr>
+     <h5>How would you describe your belief in a higher power?:</h5>
+     <p id="mySpirit"></p>
+     <hr>
+     <h5>When newsworthy things are happening in the world, at what level do you engage?:</h5>
+     <p id="myEngage"></p>
+	<script type="text/javascript">
+		var ageDict = new Array();
+		ageDict[1] = "Under 18";
+		ageDict[2] = "18-25";
+		ageDict[3] = "26-40";
+		ageDict[4] = "40+";
+		num = '{{ userpref.age }}';
+		document.getElementById("myage").innerHTML = ageDict[num]//dict["1"]//'{{ userpref.location }}';
+
+		var locDict = new Array();
+		locDict[1] = "West Coast (US)";
+		locDict[2] = "Mountain Region (US)";
+		locDict[3] = "Midwest (US)";
+		locDict[4] = "East Coast (US)";
+		locDict[5] = "Canada";
+		locDict[6] = "South America";
+		locDict[7] = "Mexico";
+		locDict[8] = "Europe";
+		locDict[9] = "Middle East";
+		locDict[10] = "Africa";
+		locDict[11] = "Western Asia";
+		locDict[12] = "Eastern Asia";
+		locDict[13] = "Southern Asia";
+		locDict[14] = "Australia";
+		locDict[15] = "Other";
+
+		num = '{{ userpref.location }}';
+		document.getElementById("myLocation").innerHTML = locDict[num];
+
+		var spiritDict = new Array();
+		spiritDict[1] = "atheist"
+		spiritDict[2] = "agnostic"
+		spiritDict[3] = "spirital but not religious"
+		spiritDict[4] = "spiritual and also religious"
+		spiritDict[5] = "devout religious"
+
+		num = '{{ userpref.spirituality }}';
+		document.getElementById("mySpirit").innerHTML = spiritDict[num];
+
+		var engageDict = new Array();
+		engageDict[1] = "I do not engage"
+		engageDict[2] = "I educate myself to understand the gist of it"
+		engageDict[3] = "In addition to educating myself, I initiate hard conversations with family and friends"
+		engageDict[4] = "I participate in community-wide events surrounding social justice issues"
+		engageDict[5] = "I am a full on activist: I organize events, create social media content, etc."
+
+		num = '{{ userpref.engagement }}';
+		document.getElementById("myEngage").innerHTML = engageDict[num];
+	</script>	
 
 {% endblock content %}
